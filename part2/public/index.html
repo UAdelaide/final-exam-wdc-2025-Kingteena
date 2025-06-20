@@ -116,7 +116,10 @@
                   .then(data => {
                     dog.photo_url = data.message; // Add photo URL to each dog object
                   })
-                  .catch
+                  .catch(error => {
+                    console.error("Error fetching dog image:", error);
+                    dog.photo_url = ''; // Fallback if image fetch fails
+                  });
               })
               dogs.value = response
               console.log("Dogs loaded successfully:", this.responseText);
