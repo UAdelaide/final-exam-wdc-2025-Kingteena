@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+
+// Import session middleware
 const session = require('express-session');
 
 const app = express();
@@ -8,8 +10,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'defaultsecret'}));
+app.use(session({ 'defaultsecret'}));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
