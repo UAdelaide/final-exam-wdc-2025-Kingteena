@@ -25,7 +25,7 @@
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
             <select v-model="form.dog_id" class="form-control" required>
-              <option v-for="dog in dogs" :value="dog.dog_id">{{dog.name}}</option>
+              <option v-for="dog in dogs" :value="dog.dog_id" :key="dog.dog_id">{{dog.name}}</option>
             </select>
           </div>
           <div class="mb-3">
@@ -147,8 +147,8 @@
               this.dogs = response;
               console.log("Dogdsdss loaded successfully:", this.dogs);
 
-              for (dog in this.dogs){
-                
+              for (dog in this.dogs) {
+
               }
 
             } else if (this.readyState === 4) {
