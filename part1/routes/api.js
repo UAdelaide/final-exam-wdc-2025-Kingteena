@@ -26,7 +26,7 @@ let db;
                 ("carol123", "carol@example.com", "hashed789", "owner"),
                 ("randallxkcd", "randall@xkcd.com", "correcthorsebatterystaple", "owner"),
                 ("malfoywalker", "malfoy@hogwarts.com", "hashedhunter2", "walker"),
-                ("newwalker", "new@walker.com", ");
+                ("newwalker", "new@walker.com", "password123", "walker");
 
                 -- dogs
                 INSERT INTO Dogs(name, size, owner_id)
