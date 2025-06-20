@@ -58,6 +58,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/dogs', async (req, res) => {
   try {
+    const [rows] = await db.execute('SELECT * FROM Dogs');
     
   }
 });
