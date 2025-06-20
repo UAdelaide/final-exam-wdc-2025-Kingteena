@@ -144,8 +144,9 @@
             // If error, log the error and alert the user
             if (this.readyState === 4 && this.status === 200) {
               const response = JSON.parse(this.responseText);
-              console.log("Dogs loaded successfully:", response);
               this.dogs = response;
+              console.log("Dogdsdss loaded successfully:", this.dogs);
+
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
               alert("Failed to load dogs");
