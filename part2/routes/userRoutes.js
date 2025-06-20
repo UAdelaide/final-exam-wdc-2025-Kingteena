@@ -43,7 +43,9 @@ router.get('/dogs', async(req,res) => {
     return res.status(401).json({ error: 'Not logged in' });
   }
 
-  const 
+  const userId = req.session.user.user_id;
+
+  
 });
 
 // POST login - Modified to use username instead of email
