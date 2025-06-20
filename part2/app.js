@@ -27,7 +27,7 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-app.get('/api/dogs', (req, res) => {
+app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
       SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
