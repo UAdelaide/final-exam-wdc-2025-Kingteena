@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <h1>Dog of the day!</h1>
-        <img src=" " v-bind:src="dogImage" class="dog-image" alt="">
+        <img v-bind:src="dogImage" src=" " class="dog-image" alt="">
         <ul class="dog-details">
             <li>Name: Doggo</li>
             <li>Breed: Golden Retriever</li>
@@ -23,7 +23,7 @@
     <script>
         const { createApp } = Vue;
 
-        let dogImage = ""
+        let dogImage = "jiodsf"
 
         fetch("https://dog.ceo/api/breeds/image/random")
             .then(response => response.json())
