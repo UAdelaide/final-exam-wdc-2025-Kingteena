@@ -1,3 +1,5 @@
+// Vue.js is defined in the HTML file
+// eslint-disable-next-line no-undef
 const { createApp, onMounted, ref } = Vue;
 createApp({
     setup() {
