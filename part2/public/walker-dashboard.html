@@ -82,6 +82,14 @@
         async function getCurrentUser() {
           try {
             xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+              if (this.readyState === 4 && this.status === 200) {
+                const user = JSON.parse(this.responseText);
+                console.log("Current user:", user);
+              } else if (this.readyState === 4) {
+                console.error("Error fetching current user:", this.responseText);
+              }
+            }
           }
         }
 
