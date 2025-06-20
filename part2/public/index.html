@@ -101,7 +101,8 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
         }
-        onMounted(() => {
+
+        function updateDogs() {
           console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
@@ -118,6 +119,9 @@
           xmlhttp.open("GET", "/api/dogs", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send();
+        }
+        onMounted(() => {
+          updateDogs(); // Load dogs when the app is mounted
         })
         return {
           dogs,
