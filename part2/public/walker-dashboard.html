@@ -81,6 +81,7 @@
         // get current user details
         async function getCurrentUser() {
           try {
+            // Create AJAX Request
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
               if (this.readyState === 4 && this.status === 200) {
@@ -88,10 +89,12 @@
                 console.log("Current user:", response);
               } else if (this.readyState === 4) {
                 console.error("Error fetching current user:", this.responseText);
+                error.value = 'Failed to load current user';
               }
             }
           } catch (err) {
             console.error("Error in getCurrentUser:", err);
+            error.value = 'Failed to load current user';
           }
         }
 
