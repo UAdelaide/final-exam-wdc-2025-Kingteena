@@ -64,7 +64,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: await getCurrentUser() })
+              body: JSON.stringify({ walker_id: user })
             });
             const result = await res.json();
 
@@ -89,7 +89,6 @@
                 console.log("Current user:", response);
                 // Store user ID in the variable
                 user.value = response.user_id;
-                return response.user_id;
               } else if (this.readyState === 4) {
                 console.error("Error fetching current user:", this.responseText);
                 error.value = 'Failed to load current user';
@@ -103,7 +102,7 @@
           // Get user details from the server
           xmlhttp.open("GET", "/api/users/me", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
-          return xmlhttp.send();
+          xmlhttp.send();
         }
 
         // Logout function from page.js, modified to redirect to login page
