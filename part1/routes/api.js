@@ -91,7 +91,7 @@ router.get('/walkrequests/open', async (req, res) => {
 router.get('/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.execute(`
-      SELECT Users.username AS walker_username,
+      SELECT Users.username AS walker_username, 
       `);
   }
 })
