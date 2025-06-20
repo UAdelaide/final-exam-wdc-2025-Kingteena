@@ -89,7 +89,11 @@ router.get('/walkrequests/open', async (req, res) => {
 });
 
 router.get('/walkers/summary', async (req, res) => {
-  try
+  try {
+    const [rows] = await db.execute(`
+      
+      `);
+  }
 })
 
 module.exports = router;
