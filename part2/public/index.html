@@ -85,6 +85,7 @@
                 // Redirect to walker dashboard
                 window.location.href = "walker-dashboard.html";
               } else {
+                console.error("Unknown user role:", response.user.role);
                 alert("Login failed: Unknown user role");
               }
 
@@ -101,7 +102,6 @@
         }
 
         function updateDogs() {
-          console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
@@ -109,7 +109,6 @@
               // Parse the JSON response and update the dogs array
               dogs.value = JSON.parse(this.responseText);
               updatePhotos(); // Call the function to update dogs
-              console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
               alert("Failed to load dogs");
@@ -129,7 +128,6 @@
                 // Parse the JSON response and update the photo URL
                 const response = JSON.parse(this.responseText);
                 updatedDogs[i].photo_url = response.message;
-                console.log("Photo URL updated for dog:", updatedDogs[i].dog_id, response);
               } else if (this.readyState === 4) {
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
