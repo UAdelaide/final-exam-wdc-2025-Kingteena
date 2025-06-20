@@ -59,7 +59,7 @@ router.get('/', function (req, res, next) {
 router.get('/dogs', async (req, res) => {
   try {
     const [rows] = await db.execute(`
-      SELECT Dogs.name, Dogs.size, Users.username
+      SELECT Dogs.name AS dog_name, Dogs.size, Users.username
       FROM Dogs
       INNER JOIN Users
       ON Dogs.owner_id=Users.user_id;`
@@ -89,6 +89,7 @@ router.get('walkrequests/open', async (req, res) => {
       INNER JOIN Users ON Dogs.owner_id = Users.user_id
       WHERE WalkRequests.status = 'open';
       `)
+
   }
 });
 
