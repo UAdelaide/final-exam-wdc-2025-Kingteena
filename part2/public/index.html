@@ -136,7 +136,7 @@
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
             }
-            xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random');
+            xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random', true);
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send();
           }
@@ -155,4 +155,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+<
