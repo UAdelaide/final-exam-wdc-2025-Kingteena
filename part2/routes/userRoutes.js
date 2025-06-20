@@ -37,6 +37,8 @@ router.get('/me', (req, res) => {
   return res.json(req.session.user);
 });
 
+// New GET user's dogs route
+
 // POST login - Modified to use username instead of email
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
