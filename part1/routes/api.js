@@ -61,10 +61,11 @@ router.get('/dogs', async (req, res) => {
     const [rows] = await db.execute('SELECT * FROM Dogs');
 
     //format the response
-    const dogs = rows.map(dog => ({
+    const dogs = rows.map((dog) => ({
       dog_name: dog.name,
       size: dog.size,
-      ownder_username
+      // ownder_username
+    }));
 
   } catch (err) {
     console.error('Error fetching dogs:', err);
