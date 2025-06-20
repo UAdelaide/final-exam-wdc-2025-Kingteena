@@ -69,19 +69,19 @@ createApp({
                         user.value = response.user_id;
                         return user;
                     } else if (this.readyState === 4) {
-                        console.error("Error fetching current user:", this.responseText);
                         error.value = 'Failed to load current user';
                     }
-                }
+                };
+                // Get user details from the server
+                xmlhttp.open("GET", "/api/users/me", true);
+                xmlhttp.setRequestHeader("Content-type", "application/json");
+                xmlhttp.send();
             } catch (err) {
                 console.error("Error in getCurrentUser:", err);
                 error.value = 'Failed to load current user';
             }
 
-            // Get user details from the server
-            xmlhttp.open("GET", "/api/users/me", true);
-            xmlhttp.setRequestHeader("Content-type", "application/json");
-            xmlhttp.send();
+
         }
 
         // Logout function from page.js, modified to redirect to login page
