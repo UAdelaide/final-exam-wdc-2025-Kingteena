@@ -110,7 +110,14 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               const response = JSON.parse(this.responseText);
-              
+              response.forEach(dog => {
+                fetch(`https://dog.ceo/api/breeds/image/random`)
+                  .then(res => res.json())
+                  .then(data => {
+                    dog.photo_url = data.message; // Add photo URL to each dog object
+                  })
+                  .catch
+              })
               dogs.value = response
               console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
