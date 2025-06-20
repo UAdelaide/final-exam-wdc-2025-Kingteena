@@ -89,7 +89,7 @@
                 console.log("Current user:", response);
                 // Store user ID in the variable
                 user.value = response.user_id;
-                return 
+                return response.user_id;
               } else if (this.readyState === 4) {
                 console.error("Error fetching current user:", this.responseText);
                 error.value = 'Failed to load current user';
@@ -103,7 +103,7 @@
           // Get user details from the server
           xmlhttp.open("GET", "/api/users/me", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
-          xmlhttp.send();
+          return xmlhttp.send();
         }
 
         // Logout function from page.js, modified to redirect to login page
