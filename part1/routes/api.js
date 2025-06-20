@@ -49,10 +49,8 @@ let db;
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, rating, comment)
                 VALUES
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=1), (SELECT user_id FROM Users WHERE username="bobwalker"), 5, "Great walk!"),
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=(SELECT dog_id FROM Dogs WHERE name="Bella") AND status="accepted"), (SELECT user_id FROM Users WHERE username="bobwalker"), 4, "Bella was a over the moon after the walk!"),
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=(SELECT dog_id FROM Dogs WHERE name="Blaze") AND status="cancelled"), (SELECT user_id FROM Users WHERE username="malfoywalker"), 3, "Blaze was a bit too energetic for him.");
-            `);
+                ((S))
+                `);
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
