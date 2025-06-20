@@ -51,7 +51,8 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Alex"), '2024-06-24 15:30:00', 15, "Modburry", "completed"),
                 ((SELECT dog_id FROM Dogs WHERE name="Max"), '2024-06-25 15:30:00', 15, "Modburry", "completed");
 
-
+                -- Applications
+                
 
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
