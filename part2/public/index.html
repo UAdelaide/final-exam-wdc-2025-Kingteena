@@ -29,31 +29,31 @@
     <!-- Remove the existing buttons -->
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
-  </div>
 
-  <!-- Add new heading -->
-  <h1 class="mb-4 text-secondary">All Registered Dogs</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Dog ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Size</th>
-        <th scope="col">Owner ID</th>
-        <th scope="col">Photo</th>
-      </tr>
-    </thead>
-    <!-- Using vue to populate the table -->
-    <tbody>
-      <tr v-for="dog in dogs" :key="dog.dog_id">
-        <td>{{ dog.dog_id }}</td>
-        <td>{{ dog.name }}</td>
-        <td>{{ dog.size }}</td>
-        <td>{{ dog.owner_id }}</td>
-        <td><img :src="dog.photo_url" alt="Dog Photo" style="height: 100px;" src=" "></td>
-      </tr>
-    </tbody>
-  </table>
+    <!-- Add new heading -->
+    <h1 class="mb-4 text-secondary">All Registered Dogs</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Dog ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Size</th>
+          <th scope="col">Owner ID</th>
+          <th scope="col">Photo</th>
+        </tr>
+      </thead>
+      <!-- Using vue to populate the table -->
+      <tbody>
+        <tr v-for="dog in dogs" :key="dog.dog_id">
+          <td>{{ dog.dog_id }}</td>
+          <td>{{ dog.name }}</td>
+          <td>{{ dog.size }}</td>
+          <td>{{ dog.owner_id }}</td>
+          <td><img :src="dog.photo_url" alt="Dog Photo" style="height: 100px;" src=" "></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <script>
     const { createApp } = Vue;
