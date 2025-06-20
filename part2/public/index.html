@@ -107,11 +107,18 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
         }
-        
+
 
         return {
           login,
         };
+      },
+      async mounted(){
+        // Fetch all registered dogs from the server
+        xtmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            
       }
     }).mount('#app');
   </script>
