@@ -109,7 +109,7 @@
           xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
-              dogs.value= JSON.parse(this.responseText);
+              dogs.value = JSON.parse(this.responseText);
               updatePhotos(); // Call the function to update dogs
               console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
@@ -136,7 +136,9 @@
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
             }
-            xmlhttp.open("GET", 'h'
+            xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random', true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send();
           }
         }
         onMounted(() => {
