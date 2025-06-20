@@ -35,8 +35,7 @@ let db;
                 ("Alex", "large", (SELECT user_id FROM Users WHERE username="carol123")),
                 ("Teena", "medium", (SELECT user_id FROM Users WHERE username="alice123"));
                 `);
-                
-                -- Requests
+      await db.execute(`
                 INSERT INTO WalkRequests(dog_id, requested_time, duration_minutes, location, status)
                 VALUES
                 ((SELECT dog_id FROM Dogs WHERE name="Max"), '2025-06-10 08:00:00', 30, "Parklands", "open"),
@@ -49,8 +48,8 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Blaze"), '2024-06-24 15:30:00', 15, "Modburry", "completed"),
                 ((SELECT dog_id FROM Dogs WHERE name="Alex"), '2024-06-24 15:30:00', 15, "Modburry", "completed"),
                 ((SELECT dog_id FROM Dogs WHERE name="Max"), '2024-06-25 15:30:00', 15, "Modburry", "completed");
-
-                -- Applications
+                `);
+      await db.execute(`
                 INSERT INTO WalkApplications(request_id, walker_id, status)
                 VALUES
                 (2, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
@@ -60,7 +59,8 @@ let db;
                 (10, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (8, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending"),
                 (9, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending");
-
+      `);
+      await db.execute(`
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
                 VALUES
