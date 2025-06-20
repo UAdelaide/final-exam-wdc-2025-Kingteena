@@ -128,7 +128,7 @@
         async function getPhotoUrl() {
           try {
             const response = await fetch("https://dog.ceo/api/breeds/image/random");
-            const data = await response.json();
+            const data = response.json();
             console.log("Dog image URL:", data.message);
             return data.message; // Return the dog image URL
           } catch (error) {
