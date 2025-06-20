@@ -44,6 +44,13 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Blaze"), '2025-06-21 10:30:00', 300, "Adelaide Parklands", "cancelled"),
                 ((SELECT dog_id FROM Dogs WHERE name="Teena"), '2025-07-21 21:30:00', 15, "Unley", "open"),
                 ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+
+
+                -- Ratings
+                INSERT INTO WalkRatings(request_id, walker_id, rating, comment)
+                VALUES
+                ((SELECT request_id FROM WalkRequests WHERE dog_id=(SELECT dog_id FROM Dogs WHERE name="Max") AND status="open"), (SELECT user_id FROM Users WHERE username="bobwalker"), 5, "Great walk!"),
+                ((SELECT request_id FROM WalkRequests WHERE dog_id=(SELECT dog_id FROM Dogs WHERE name="Bella") AND status="accepted"), (SELECT user_id FROM
             `);
     }
   } catch (err) {
