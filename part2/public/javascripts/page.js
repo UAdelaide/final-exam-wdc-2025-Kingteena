@@ -175,7 +175,7 @@ function downvote(index) {
     updatePosts();
 }
 
-
+// Login and logout function copied over to relevant page
 
 function logout() {
 
