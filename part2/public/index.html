@@ -38,7 +38,7 @@
     createApp({
       // Create the setup
       setup() {
-
+        // Login function provided in page.js
         function login() {
 
           let user = {
@@ -59,19 +59,17 @@
           };
 
           // Open connection to server & send the post data using a POST request
-          // We will cover POST requests in more detail in week 8
           xmlhttp.open("POST", "/users/login", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
 
         }
-        //Login function
+        //Login form submission handler
         function submitLoginForm(event) {
           event.preventDefault();
           login();
           alert('');
         }
-
 
         return {
           submitLoginForm
