@@ -99,11 +99,12 @@ router.get('/walkers/summary', async (req, res) => {
       INNER JOIN Users ON Users.user_id = WalkRequests.walker_id
       INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
       `);
+    res.json(rows);
   } catch (err) {
     console.error('Error fetching walker summary:', err);
     res.sendStatus(500);
   }
-})
+});
 
 /*
 {
