@@ -31,6 +31,7 @@ app.get('/api/dogs', async (req, res) => {
     try {
         // Modify the query to select the required fields
         const [rows] = await db.execute(`SELECT dog_id, name, size, owner_id FROM Dogs`);
+        
         res.json(rows);
     } catch (err) {
         console.error('Error fetching dogs:', err);
