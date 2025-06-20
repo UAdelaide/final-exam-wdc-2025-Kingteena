@@ -55,8 +55,8 @@ let db;
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
                 VALUES
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=2 AND status="completed"), (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="carol123"), 5, "Great walk!"),
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=1 AND status="completed"), (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 4, "Good job, but could be better."),
+                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="carol123"), 5, "Great walk!"),
+                (6, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 4, "Good job, but could be better."),
                 ((SELECT request_id FROM WalkRequests WHERE dog_id=3 AND status="completed"), (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="randallxkcd"), 3, "Average walk, not very engaging."),
                 ((SELECT request_id FROM WalkRequests WHERE dog_id=4 AND status="completed"), (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="carol123"), 2, "Not great, the walker was late.");
                 `);
