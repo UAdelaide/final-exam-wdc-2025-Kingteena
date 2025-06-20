@@ -16,12 +16,12 @@
     <!-- Form for login, using vue to handle the function -->
     <form @submit.prevent="login">
       <div class="mb-3">
-        <label for="username" class="form-label">Email address</label>
+        <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" placeholder="Enter username" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" required>
+        <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
       </div>
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
@@ -41,7 +41,7 @@
 
         // Login function provided in page.js, modified to handle form submission
         function login(event) {
-            event.preventDefault();
+          event.preventDefault();
 
           let user = {
             user: document.getElementById('username').value,
