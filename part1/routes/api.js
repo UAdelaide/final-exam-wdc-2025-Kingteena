@@ -58,8 +58,9 @@ let db;
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (6, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (7, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),                   (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
-
-                (4, (SELECT user_id FROM Users WHERE username="newwalker"), "pending");
+                (10, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (8, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending");
+                (9, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending");
 
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
