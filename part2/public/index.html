@@ -101,32 +101,29 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
         }
-
-        function updateDogs(){
-
-        }
+      }
         onMounted(() => {
-          console.log("App mounted, loading dogs...");
-          // Fetch all registered dogs from the server
-          const xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-              // Parse the JSON response and update the dogs array
-              dogs.value = JSON.parse(this.responseText);
-              console.log("Dogs loaded successfully:", dogs.value);
-            } else if (this.readyState === 4) {
-              console.error("Error loading dogs:", this.responseText);
-              alert("Failed to load dogs");
-            }
-          }.bind(this);
+      console.log("App mounted, loading dogs...");
+      // Fetch all registered dogs from the server
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          // Parse the JSON response and update the dogs array
+          dogs.value = JSON.parse(this.responseText);
+          console.log("Dogs loaded successfully:", dogs.value);
+        } else if (this.readyState === 4) {
+          console.error("Error loading dogs:", this.responseText);
+          alert("Failed to load dogs");
+        }
+      }
           xmlhttp.open("GET", "/api/dogs", true);
-          xmlhttp.setRequestHeader("Content-type", "application/json");
-          xmlhttp.send();
-        })
-        return {
-          dogs,
-          login, // Expose the login function to the template
-        };
+      xmlhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send();
+    })
+    return {
+      dogs,
+      login, // Expose the login function to the template
+    };
       },
     }).mount('#app');
   </script>
