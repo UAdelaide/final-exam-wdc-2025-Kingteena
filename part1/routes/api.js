@@ -5,19 +5,19 @@ var mysql = require('mysql2/promise');
 let db;
 
 (async () => {
-    try {
-        // Connect to the created database
-        db = await mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'DogWalkService'
-        });
+  try {
+    // Connect to the created database
+    db = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'DogWalkService'
+    });
 
-        // Insert data if table is empty
-        const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-        if (rows[0].count === 0) {
-            await db.execute(`
+    // Insert data if table is empty
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    if (rows[0].count === 0) {
+      await db.execute(`
                 -- Users
                 INSERT INTO Users(username, email, password_hash, role)
                 VALUES
@@ -45,20 +45,25 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Teena"), '2025-07-21 21:30:00', 15, "Unley", "open"),
                 ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
             `);
-        }
-    } catch (err) {
-        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
+  } catch (err) {
+    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+  }
 })();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
 router.get('/dogs', async (req, res) => {
   try {
-    const [rows] = await db.execute('SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id=Users.user_id;');
+    const [rows] = await db.execute(`
+      SELECT Dogs.name, Dogs.size, Users.username
+      FROM Dogs
+      INNER JOIN Users
+      ON Dogs.owner_id=Users.user_id;`
+    );
 
     // format the response
     const dogs = rows.map((dog) => ({
@@ -76,7 +81,7 @@ router.get('/dogs', async (req, res) => {
 });
 
 router.get('walkrequests/open', async (req, res) => {
-  
+  try {}
 });
 
 module.exports = router;
