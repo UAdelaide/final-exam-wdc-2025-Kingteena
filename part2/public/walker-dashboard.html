@@ -79,7 +79,7 @@
           }
         }
 
-        //This is an alternate way to get the current user details
+        //This is one way to "get" the current user
         function getCurrentUser() {
           fetch('/api/users/me')
             .then(response => {
@@ -89,7 +89,7 @@
             .then(data => {
               console.log("Current user:", data);
               user.value = data.user_id; // Store user ID in the variable
-              return user;
+              return data.user_id;
             })
             .catch(err => {
               console.error("Error fetching current user:", err);
