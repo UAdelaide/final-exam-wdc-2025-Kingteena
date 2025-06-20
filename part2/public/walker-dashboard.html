@@ -87,7 +87,7 @@
               return response.json();
             })
             .then(data => {
-              console.log("Current user:", data);
+              console.log("Current user:", data.user_id);
               user.value = data.user_id; // Store user ID in the variable
               return data.user_id;
             })
@@ -97,38 +97,38 @@
             });
         }
 
-      /*
-        // This is an alternate way to get current user details and store it in user
-        // However, this does not return the user, so it is not used
-        // If this is implemented, it should be called in the onMounted function
-        async function getCurrentUser() {
-          try {
-            // Create AJAX Request
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-              if (this.readyState === 4 && this.status === 200) {
-                const response = JSON.parse(this.responseText);
-                console.log("Current user:", response);
-                // Store user ID in the variable
-                user.value = response.user_id;
-                return user
-              } else if (this.readyState === 4) {
-                console.error("Error fetching current user:", this.responseText);
-                error.value = 'Failed to load current user';
+        /*
+          // This is an alternate way to get current user details and store it in user
+          // However, this does not return the user, so it is not used
+          // If this is implemented, it should be called in the onMounted function
+          async function getCurrentUser() {
+            try {
+              // Create AJAX Request
+              xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                  const response = JSON.parse(this.responseText);
+                  console.log("Current user:", response);
+                  // Store user ID in the variable
+                  user.value = response.user_id;
+                  return user
+                } else if (this.readyState === 4) {
+                  console.error("Error fetching current user:", this.responseText);
+                  error.value = 'Failed to load current user';
+                }
               }
+            } catch (err) {
+              console.error("Error in getCurrentUser:", err);
+              error.value = 'Failed to load current user';
             }
-          } catch (err) {
-            console.error("Error in getCurrentUser:", err);
-            error.value = 'Failed to load current user';
-          }
 
-        // Get user details from the server
-        xmlhttp.open("GET", "/api/users/me", true);
-        xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send();
-      }
+          // Get user details from the server
+          xmlhttp.open("GET", "/api/users/me", true);
+          xmlhttp.setRequestHeader("Content-type", "application/json");
+          xmlhttp.send();
+        }
 
-      */
+        */
 
         // Logout function from page.js, modified to redirect to login page
         function logout() {
