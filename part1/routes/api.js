@@ -62,8 +62,7 @@ router.get('/dogs', async (req, res) => {
       SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
       FROM Dogs
       INNER JOIN Users
-      ON Dogs.owner_id=Users.user_id;`
-    );
+      ON Dogs.owner_id=Users.user_id;`);
 
     res.json(rows);
 
@@ -81,11 +80,12 @@ router.get('walkrequests/open', async (req, res) => {
       INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
       INNER JOIN Users ON Dogs.owner_id = Users.user_id
       WHERE WalkRequests.status = 'open';
-      `)
+      `);
     res.json(rows);
   } catch (err) {
     console.error('Error fetching open walk requests:', err);
-    res.sendStatus(500)
-}});
+    res.sendStatus(500);
+  }
+});
 
 module.exports = router;
