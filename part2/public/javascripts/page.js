@@ -45,8 +45,8 @@ function updatePosts() {
         // Check if a search term used.
         if (search !== null) {
             // If so, skip this question/post if title or content doesn't match
-            if (post.title.toUpperCase().indexOf(search) < 0 &&
-                post.content.toUpperCase().indexOf(search) < 0) {
+            if (post.title.toUpperCase().indexOf(search) < 0
+                && post.content.toUpperCase().indexOf(search) < 0) {
                 continue;
             }
         }
@@ -107,7 +107,7 @@ function loadPosts() {
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status == 200) {
             // Parse the JSON and update the posts array
             posts = JSON.parse(this.responseText);
             // Call the updatePosts function to update the page
