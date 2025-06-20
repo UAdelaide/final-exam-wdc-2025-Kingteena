@@ -125,7 +125,7 @@
             console.error("Error loading dogs:", this.responseText);
             alert("Failed to load dogs");
           }
-        });
+        };
         xmlhttp.open("GET", "/api/dogs", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
         xmlhttp.send();
