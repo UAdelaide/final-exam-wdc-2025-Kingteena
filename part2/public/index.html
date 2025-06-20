@@ -16,8 +16,8 @@
     <!-- Form for login, using vue to handle the function -->
     <form @submit.prevent="login">
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        <label for="username" class="form-label">Email address</label>
+        <input type="username" class="form-control" id="username" placeholder="Enter email" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -42,7 +42,7 @@
         // Login function provided in page.js, modified to handle form submission
         function login(event) {
             event.preventDefault();
-            
+
           let user = {
             user: document.getElementById('username').value,
             pass: document.getElementById('password').value
