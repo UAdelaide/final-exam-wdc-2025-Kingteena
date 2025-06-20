@@ -23,12 +23,9 @@
     <script>
         const { createApp } = Vue;
 
-        let dogImage = "jiodsf"
-
         fetch("https://dog.ceo/api/breeds/image/random")
             .then(response => response.json())
             .then(data => {
-                dogImage = data.message;
                 console.log("Dog image URL:", dogImage);
             })
             .catch(error => {
