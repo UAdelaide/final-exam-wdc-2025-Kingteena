@@ -116,6 +116,14 @@
                 photoxmlhttp.onreadystatechange = function () {
                   if (this.readyState === 4 && this.status === 200) {
                     dog.photo_url = JSON.parse(this.responseText).message; // Set the photo URL
+                  } else if (this.readyState === 4) {
+                    console.error("Error fetching dog photo:", this.responseText);
+                    dog.photo_url = ""; // Set empty string if there's an error
+                  }
+                };
+                photoxmlhttp.open("GET", `https://dog.ceo/api/breeds/image/random`, true);
+                photoxmlhttp.setRequestHeader("Content-type", "application/json");
+                photoxmlhttp.send();
               });
               dogs.value = response;
               console.log("Dogs loaded successfully:", response);
