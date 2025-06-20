@@ -78,6 +78,9 @@
           }
         }
 
+        //This is an alternate way to get the current user details
+
+/*
         // get current user details
         async function getCurrentUser() {
           try {
@@ -99,7 +102,7 @@
             console.error("Error in getCurrentUser:", err);
             error.value = 'Failed to load current user';
           }
-
+*/
           // Get user details from the server
           xmlhttp.open("GET", "/api/users/me", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
