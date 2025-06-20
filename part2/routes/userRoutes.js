@@ -37,7 +37,7 @@ router.get('/me', (req, res) => {
   return res.json(req.session.user);
 });
 
-// New GET user's dogs route using 
+// New GET user's dogs route using id stored in session
 router.get('/dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
