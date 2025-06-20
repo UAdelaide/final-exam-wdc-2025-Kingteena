@@ -12,7 +12,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Set up session middleware
-app.use(session({ secret: 'defaultsecret' }));
+app.use(session({
+    secret: 'defaultsecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false}
+
+}));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
