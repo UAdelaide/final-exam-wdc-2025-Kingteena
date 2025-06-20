@@ -58,15 +58,15 @@ router.get('/', function(req, res, next) {
 
 router.get('/dogs', async (req, res) => {
   try {
-    const [rows] = await db.execute('SELECT * FROM Dogs');
+    const [rows] = await db.execute('SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id=Users.user_id;');
 
     // format the response
     const dogs = rows.map((dog) => ({
       dog_name: dog.name,
-      size: dog.size
-      // owner_username
+      size: dog.size,
+      owner_username: dog.username
     }));
-
+    res.json(dogs);
   } catch (err) {
     console.error('Error fetching dogs:', err);
     res.status(500).json({ error: 'Internal Server Error' });
