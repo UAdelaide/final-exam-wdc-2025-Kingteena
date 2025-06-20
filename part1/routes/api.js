@@ -54,8 +54,11 @@ let db;
                 -- Applications
                 INSERT INTO WalkApplications(request_id, walker_id, status)
                 VALUES
-                (1, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (2, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+
                 (3, (SELECT user_id FROM Users WHERE username="malfoywalker"), "rejected"),
                 (4, (SELECT user_id FROM Users WHERE username="newwalker"), "pending");
 
