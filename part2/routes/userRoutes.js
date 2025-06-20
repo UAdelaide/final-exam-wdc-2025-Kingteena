@@ -38,6 +38,13 @@ router.get('/me', (req, res) => {
 });
 
 // New GET user's dogs route
+router.get('/dogs', async(req,res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+
+  const 
+});
 
 // POST login - Modified to use username instead of email
 router.post('/login', async (req, res) => {
