@@ -44,6 +44,12 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Blaze"), '2025-06-21 10:30:00', 300, "Adelaide Parklands", "cancelled"),
                 ((SELECT dog_id FROM Dogs WHERE name="Teena"), '2025-07-21 21:30:00', 15, "Unley", "open"),
                 ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+                ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+                ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+                ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+                ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+                ((SELECT dog_id FROM Dogs WHERE name="Bella"), '2024-06-24 15:30:00', 15, "Modburry", "completed");
+
 
 
                 -- Ratings
