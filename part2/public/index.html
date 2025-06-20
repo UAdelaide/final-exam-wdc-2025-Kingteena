@@ -62,7 +62,9 @@
                 // Redirect to walker dashboard
                 window.location.href = "walker-dashboard.html";
               } else {
-                
+                console.error("Unknown user role:", response.user.role);
+                alert("Login failed: Unknown user role");
+              }
 
             } else if (this.readyState === 4 && this.status >= 400) {
               console.error("Error response:", this.responseText);
