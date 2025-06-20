@@ -110,7 +110,7 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               dogs.value = JSON.parse(this.responseText);
-              console.log("Dogs loaded successfully:", dogs.value);
+              console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
               alert("Failed to load dogs");
