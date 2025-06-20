@@ -112,7 +112,7 @@ router.get('/walkers/summary', async (req, res) => {
       SELECT Users.username AS walker_username,
       COUNT(WalkRatings.rating_id) AS total_ratings,
       ROUND(AVG(WalkRatings.rating),1) AS average_rating,
-      COUNT(CASE WHEN WalkRequests.status = 'completed' THEN 1 END) AS completed_walks
+      COUNT() AS completed_walks
       From Users
       LEFT JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
       LEFT JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
