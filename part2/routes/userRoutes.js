@@ -38,7 +38,7 @@ router.get('/me', (req, res) => {
 });
 
 // New GET user's dogs route
-router.get('/dogs', async(req,res) => {
+router.get('/dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
@@ -48,8 +48,11 @@ router.get('/dogs', async(req,res) => {
     const [rows] = await db.query(`
     SELECT name FROM Dogs
     WHERE owner_id = ?
-`)}
+    `, [userId]);
   }
+  catch (error) {
+    return res.send
+  };
 });
 
 // POST login - Modified to use username instead of email
