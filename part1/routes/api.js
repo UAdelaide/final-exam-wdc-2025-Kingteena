@@ -99,7 +99,6 @@ router.get('/walkers/summary', async (req, res) => {
       INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
       INNER JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
       GROUP BY Users.username
-      HAVING Users.role = 'walker';
       `);
     res.json(rows);
   } catch (err) {
