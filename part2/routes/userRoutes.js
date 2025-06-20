@@ -44,8 +44,9 @@ router.get('/dogs', async(req,res) => {
   }
 
   const userId = req.session.user.user_id;
-
-  
+  try {
+    
+  }
 });
 
 // POST login - Modified to use username instead of email
