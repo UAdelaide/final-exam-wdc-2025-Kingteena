@@ -46,8 +46,6 @@
             password: document.getElementById('password').value
           };
 
-          console.log("User data:", user);
-
           // Create AJAX Request
           var xmlhttp = new XMLHttpRequest();
 
@@ -58,6 +56,7 @@
               // Normally, you would store a session key and serialize the user data
               // However, the backend depends on session.user so we will store the user data in sessionStorage
               sessionStorage.setItem('user', JSON.stringify(this.responseText));
+              console.log("Login successful:", this.responseText);
 
             } else if (this.readyState === 4 && this.status >= 400) {
               console.error("Error response:", this.responseText);
