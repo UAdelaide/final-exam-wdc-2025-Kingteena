@@ -57,7 +57,6 @@ let db;
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
                 VALUES
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="carol123"), 5, "Great walk!"),
-                (6, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 5, "Good job, but could be better."),
                 (7, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 3, "Was late and didn't follow instructions."),
                 (10, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 5, "Much better than last time."),
                 (8, (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="randallxkcd"), 3, "Average walk, not very engaging."),
