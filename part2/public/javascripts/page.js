@@ -175,15 +175,4 @@ function downvote(index) {
     updatePosts();
 }
 
-// Login and logout function copied over to relevant page
-
-function logout() {
-
-    // Create AJAX Request
-    var xmlhttp = new XMLHttpRequest();
-
-    // Open connection to server & send the post data using a POST request
-    xmlhttp.open("POST", "/users/logout", true);
-    xmlhttp.send();
-
-}
+        // Login and logout function copied over to relevant page
