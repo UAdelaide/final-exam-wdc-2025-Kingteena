@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
 
   try {
     const [rows] = await db.query(`
-      SELECT * FROM Users
+      SELECT user_id, username, email,  FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
@@ -51,10 +51,10 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    return res.json({ message: 'Login successful', user: rows[0] });
-
     // Noting that the existing backend code expects session.user to be set
     req.session.user = rows[0];
+
+    return res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
     return res.status(500).json({ error: 'Login failed' });
   }
