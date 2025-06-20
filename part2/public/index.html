@@ -112,7 +112,10 @@
               let response = JSON.parse(this.responseText);
               response.forEach(dog => {
                 // Fetch photo URL for each dog
-                dog.photo_url = getPhotoUrl();
+                getPhotoUrl()
+                  .then(photoUrl => {
+                    dog.photo_url = photoUrl; // Assign the photo URL to the dog object
+                  });
               });
               dogs.value = response;
               console.log("Dogs loaded successfully:", response);
