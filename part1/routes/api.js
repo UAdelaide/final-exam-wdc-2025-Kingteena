@@ -18,7 +18,6 @@ let db;
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
       await db.execute(`
-                -- Users
                 INSERT INTO Users(username, email, password_hash, role)
                 VALUES
                 ("alice123", "alice@example.com", "hashed123", "owner"),
@@ -26,9 +25,8 @@ let db;
                 ("carol123", "carol@example.com", "hashed789", "owner"),
                 ("randallxkcd", "randall@xkcd.com", "correcthorsebatterystaple", "owner"),
                 ("malfoywalker", "malfoy@hogwarts.com", "hashedhunter2", "walker"),
-                ("newwalker", "new@walker.com", "password123", "walker");
-
-                -- dogs
+                ("newwalker", "new@walker.com", "password123", "walker");`);
+      await db.execute(`
                 INSERT INTO Dogs(name, size, owner_id)
                 Values
                 ("Max", "medium", (SELECT user_id FROM Users WHERE username="alice123")),
@@ -36,7 +34,8 @@ let db;
                 ("Blaze", "medium", (SELECT user_id FROM Users WHERE username="randallxkcd")),
                 ("Alex", "large", (SELECT user_id FROM Users WHERE username="carol123")),
                 ("Teena", "medium", (SELECT user_id FROM Users WHERE username="alice123"));
-
+                `);
+                
                 -- Requests
                 INSERT INTO WalkRequests(dog_id, requested_time, duration_minutes, location, status)
                 VALUES
