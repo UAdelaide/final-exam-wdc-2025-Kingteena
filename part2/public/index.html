@@ -106,24 +106,25 @@
         return {
           login,
         };
+
+      onMounted{
+          // Fetch all registered dogs from the server
+          xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+              // Parse the JSON response and update the dogs array
+              dogs.value = JSON.parse(this.responseText);
+              console.log("Dogs loaded successfully:", this.dogs);
+            } else if (this.readyState === 4) {
+              console.error("Error loading dogs:", this.responseText);
+              alert("Failed to load dogs");
+            }
+          }.bind(this);
+          xmlhttp.open("GET", "/api/dogs", true);
+          xmlhttp.setRequestHeader("Content-type", "application/json");
+          xmlhttp.send();
+        }
       },
-      onMounted((){
-        // Fetch all registered dogs from the server
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-          if (this.readyState === 4 && this.status === 200) {
-            // Parse the JSON response and update the dogs array
-            dogs.value = JSON.parse(this.responseText);
-            console.log("Dogs loaded successfully:", this.dogs);
-          } else if (this.readyState === 4) {
-            console.error("Error loading dogs:", this.responseText);
-            alert("Failed to load dogs");
-          }
-        }.bind(this);
-        xmlhttp.open("GET", "/api/dogs", true);
-        xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send();
-      })
     }).mount('#app');
   </script>
 
