@@ -57,7 +57,7 @@
 
               // Normally, you would store a session key and serialize the user data
               // However, the backend depends on session.user so we will store the user data in sessionStorage
-              sessionStorage
+              sessionStorage.setItem('user', JSON.stringify(responseText));
 
             } else if (this.readyState === 4 && this.status >= 400) {
               console.error("Error response:", this.responseText);
