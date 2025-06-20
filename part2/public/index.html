@@ -56,6 +56,7 @@
             if (this.readyState === 4 && this.status === 200) {
               alert("Welcome " + this.responseText);
             } else if (this.readyState === 4 && this.status >= 400) {
+              console.error("Error response:", this.responseText);
               alert("Login failed");
             }
           };
