@@ -118,6 +118,20 @@
           }
         }
 
+        // Logout function from page.js, modified to redirect to login page
+        function logout() {
+          // Create AJAX Request
+          var xmlhttp = new XMLHttpRequest();
+
+          // Open connection to server & send the post data using a POST request
+          xmlhttp.open("POST", "/api/users/logout", true);
+          xmlhttp.send();
+
+          // Redirect to login page
+          window.location.href = "/";
+        }
+
+
         onMounted(() => {
           loadWalks();
         });
@@ -127,7 +141,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
