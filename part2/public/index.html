@@ -109,12 +109,8 @@
           xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
-              let response = JSON.parse(this.responseText);
-              response = response.map(dog => ({
-                ...dog,
-                photo_url: getPhotoUrl()
-              }))
-              dogs.value = response; // Update the 
+              dogs.value= JSON.parse(this.responseText);
+              updateDogs(); // Call the function to update dogs
               console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
