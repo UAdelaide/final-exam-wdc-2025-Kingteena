@@ -130,8 +130,8 @@
               if (this.readyState === 4 && this.status === 200) {
                 // Parse the JSON response and update the photo URL
                 const response = JSON.parse(this.responseText);
-                updatedDogs[i].photo_url = response.photo_url;
-                console.log("Photo URL updated for dog:", updatedDogs[i].dog_id, response.photo_url);
+                updatedDogs[i].photo_url = response.message;
+                console.log("Photo URL updated for dog:", updatedDogs[i].dog_id, resp);
               } else if (this.readyState === 4) {
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
