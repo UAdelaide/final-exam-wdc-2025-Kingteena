@@ -110,7 +110,10 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               let response = JSON.parse(this.responseText);
-              dogs.value = response
+              response = response.map(dog => ({
+                ...dog,
+                photo_url: getPhotoUrl()
+              }))
               console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
