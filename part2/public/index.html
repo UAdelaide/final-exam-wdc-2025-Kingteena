@@ -136,7 +136,7 @@
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
             }
-            xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random', true);
+            xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random');
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send();
           }
