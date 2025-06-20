@@ -116,6 +116,7 @@ router.get('/walkrequests/open', async (req, res) => {
 
 router.get('/walkers/summary', async (req, res) => {
   try {
+    // Assumes ratings are stored post-walk no matter what
     const [rows] = await db.execute(`
       SELECT Users.username AS walker_username,
       COUNT(WalkRatings.rating) AS total_ratings,
