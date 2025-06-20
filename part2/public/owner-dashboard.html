@@ -147,6 +147,10 @@
               this.dogs = response;
               console.log("Dogdsdss loaded successfully:", this.dogs);
 
+              for (dog in this.dogs){
+                
+              }
+
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
               alert("Failed to load dogs");
