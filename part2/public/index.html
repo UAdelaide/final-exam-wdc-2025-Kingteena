@@ -56,14 +56,9 @@
   </div>
 
   <script>
-    const { createApp, onMounted } = Vue;
+    const { createApp, onMounted, ref } = Vue;
     createApp({
-      data() {
-        return {
-          message: 'Welcome to the Dog Walking Service!',
-          dogs: [] // Array to hold dog data
-        };
-      },
+      // Hold dogs data
 
       setup() {
 
