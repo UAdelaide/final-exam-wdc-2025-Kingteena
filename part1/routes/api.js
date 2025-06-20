@@ -91,9 +91,18 @@ router.get('/walkrequests/open', async (req, res) => {
 router.get('/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.execute(`
-      
+      SELECT Users.username AS walker_username,
       `);
   }
 })
+
+/*
+{
+    "walker_username": "bobwalker",
+    "total_ratings": 2,
+    "average_rating": 4.5,
+    "completed_walks": 2
+  },
+*/
 
 module.exports = router;
