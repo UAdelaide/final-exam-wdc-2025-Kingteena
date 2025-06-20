@@ -146,8 +146,7 @@
             // If successful, parse the response and update the dogs array
             // If error, log the error and alert the user
             if (this.readyState === 4 && this.status === 200) {
-              const response = JSON.parse(this.responseText);
-              dogs.value = response;
+              dogs.value = JSON.parse(this.responseText);
               console.log("Dogdsdss loaded successfully:", dogs.value);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
