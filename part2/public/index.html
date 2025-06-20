@@ -102,6 +102,7 @@
           xmlhttp.send(JSON.stringify(user));
         }
         onMounted(() => {
+          console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
