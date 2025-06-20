@@ -52,7 +52,12 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name="Max"), '2024-06-25 15:30:00', 15, "Modburry", "completed");
 
                 -- Applications
-                
+                INSERT INTO WalkApplications(request_id, walker_id, status)
+                VALUES
+                (1, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (2, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (3, (SELECT user_id FROM Users WHERE username="malfoywalker"), "rejected"),
+                (4, (SELECT user_id FROM Users WHERE username="newwalker"), "pending");
 
                 -- Ratings
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
