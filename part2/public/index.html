@@ -107,7 +107,7 @@
           login,
         };
       },
-      async mounted() {
+      onMounted((){
         // Fetch all registered dogs from the server
         xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
@@ -123,7 +123,7 @@
         xmlhttp.open("GET", "/api/dogs", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
         xmlhttp.send();
-      }
+      })
     }).mount('#app');
   </script>
 
