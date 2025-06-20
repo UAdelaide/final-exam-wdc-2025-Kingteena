@@ -102,7 +102,7 @@
           xmlhttp.send(JSON.stringify(user));
         }
 
-        async function updateDogs() {
+        function updateDogs() {
           console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
@@ -112,7 +112,7 @@
               let response = JSON.parse(this.responseText);
               response = response.map(dog => ({
                 ...dog,
-                photo_url: await getPhotoUrl()
+                photo_url: getPhotoUrl()
               }))
               dogs.value = response;
               console.log("Dogs loaded successfully:", response);
