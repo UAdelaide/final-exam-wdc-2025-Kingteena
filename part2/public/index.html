@@ -102,7 +102,7 @@
           xmlhttp.send(JSON.stringify(user));
         }
 
-        function updateDogs() {
+        async function updateDogs() {
           console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
@@ -112,7 +112,7 @@
               let response = JSON.parse(this.responseText);
               response = response.map(dog => ({
                 ...dog,
-                photo_url: getPhotoUrl()
+                photo_url: await getPhotoUrl()
               }))
               dogs.value = response;
               console.log("Dogs loaded successfully:", response);
@@ -125,10 +125,11 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send();
         }
-        function getPhotoUrl() {
+        async function getPhotoUrl() {
           fetch("https://dog.ceo/api/breeds/image/random")
             .then(response => response.json())
             .then(data => {
+              console.log("Dog image URL:", data.message);
               return data.message; // Return the dog image URL
             })
             .catch(error => {
