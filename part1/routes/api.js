@@ -93,10 +93,12 @@ router.get('/walkers/summary', async (req, res) => {
     const [rows] = await db.execute(`
       SELECT Users.username AS walker_username,
       COUNT(WalkRatings.rating_id) AS total_ratings,
-      AVG(WalkRatings.rating) AS average_rating
+      AVG(WalkRatings.rating) AS average_rating,
+      COUNT(CASE WHEN WalkRequests.status = 'completed' THEN 1 END) AS completed
       From Users
       INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
       INNER JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
+      GROUP BY Users.username
       `);
     res.json(rows);
   } catch (err) {
