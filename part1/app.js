@@ -6,6 +6,9 @@ var mysql = require('mysql2');
 
 // Create a MySQL connection
 var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+    password: '', // Set your MySQL root password
 
 
 var indexRouter = require('./routes/index');
