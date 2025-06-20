@@ -106,7 +106,7 @@
           console.log("App mounted, loading dogs...");
           // Fetch all registered dogs from the server
           const xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
+          xmlhttp.onreadystatechange = async function () {
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               const response = JSON.parse(this.responseText);
