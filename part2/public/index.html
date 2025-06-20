@@ -110,7 +110,7 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               const response = JSON.parse(this.responseText);
-              updateImageUrls(response); // Update image URLs
+              
               dogs.value = response
               console.log("Dogs loaded successfully:", this.responseText);
             } else if (this.readyState === 4) {
