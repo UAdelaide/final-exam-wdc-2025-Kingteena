@@ -78,7 +78,6 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response
               const response = JSON.parse(this.responseText);
-              console.log("Login successful:", response.user);
               if (response.user.role === 'owner') {
                 // Redirect to owner dashboard
                 window.location.href = "owner-dashboard.html";
@@ -86,7 +85,6 @@
                 // Redirect to walker dashboard
                 window.location.href = "walker-dashboard.html";
               } else {
-                console.error("Unknown user role:", response.user.role);
                 alert("Login failed: Unknown user role");
               }
 
@@ -130,8 +128,8 @@
               if (this.readyState === 4 && this.status === 200) {
                 // Parse the JSON response and update the photo URL
                 const response = JSON.parse(this.responseText);
-                updatedDogs[i].photo_url = response.photo_url;
-                console.log("Photo URL updated for dog:", updatedDogs[i].dog_id, response.photo_url);
+                updatedDogs[i].photo_url = response.message;
+                console.log("Photo URL updated for dog:", updatedDogs[i].dog_id, response);
               } else if (this.readyState === 4) {
                 console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
               }
