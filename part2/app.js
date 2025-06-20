@@ -10,7 +10,9 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(session({ 'defaultsecret'}));
+
+// Set up session middleware
+app.use(session({ secret: 'defaultsecret' }));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
