@@ -61,7 +61,7 @@
 
         async function applyToWalk(requestId) {
           try {
-            const user_id = getCurrentUser().user_id;
+            const user_id = await getCurrentUser().user_id;
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -89,7 +89,7 @@
             .then(data => {
               console.log("Current user:", data.user_id);
               user.value = data.user_id; // Store user ID in the variable
-              return data.user_id;
+              return data;
             })
             .catch(err => {
               console.error("Error fetching current user:", err);
