@@ -36,12 +36,13 @@
   <script>
     const { createApp } = Vue;
     createApp({
-      // Create the setup
+
       setup() {
+
         // Login function provided in page.js, modified to handle form submission
         function login(event) {
             event.preventDefault();
-
+            
           let user = {
             user: document.getElementById('username').value,
             pass: document.getElementById('password').value
