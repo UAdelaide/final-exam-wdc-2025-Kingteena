@@ -13,36 +13,37 @@
         <img src=" " v-bind:src="dogImage" class="dog-image" alt="">
         <ul class="dog-details">
             <li>Name: Doggo</li>
-            <li >Breed: Golden Retriever</li>
+            <li>Breed: Golden Retriever</li>
             <li>Age: 3 years</li>
             <li>Location: San Francisco</li>
             <li>Owner: John Doe</li>
         </ul>
     </div>
 
-<script>
-    const { createApp } = Vue;
+    <script>
+        const { createApp } = Vue;
 
-    let dogImage = ""
+        let dogImage = ""
 
-    XMLHttpRequest = new XMLHttpRequest();
-    XMLHttpRequest.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
-    XMLHttpRequest.onload = function() {
-        if (XMLHttpRequest.status >= 200 && XMLHttpRequest.status < 400) {
-            const data = JSON.parse(XMLHttpRequest.responseText);
-            dogImage = data.message;
+        XMLHttpRequest = new XMLHttpRequest();
+        XMLHttpRequest.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
+        XMLHttpRequest.onload = function () {
+            if (XMLHttpRequest.status >= 200 && XMLHttpRequest.status < 400) {
+                const data = JSON.parse(XMLHttpRequest.responseText);
+                dogImage = data.message;
+            }
         }
-    }
-    XMLHttpRequest.send();
+        XMLHttpRequest.send();
 
-    createApp({
-        data() {
-            return {
-                dogImage: dogImage
-            };
-        }
-    }).mount('#app');
-</script>
+        createApp({
+            data() {
+                return {
+                    dogImage: dogImage
+                };
+            }
+        }).mount('#app');
+    </script>
 
 </body>
+
 </html>
