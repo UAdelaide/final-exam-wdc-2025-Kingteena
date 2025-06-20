@@ -56,10 +56,9 @@ let db;
                 VALUES
                 (2, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
-                                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
-                (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (6, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (7, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),                   (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
 
-                (3, (SELECT user_id FROM Users WHERE username="malfoywalker"), "rejected"),
                 (4, (SELECT user_id FROM Users WHERE username="newwalker"), "pending");
 
                 -- Ratings
