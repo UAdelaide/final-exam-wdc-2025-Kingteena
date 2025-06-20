@@ -80,7 +80,15 @@
 
         //This is an alternate way to get the current user details
         function getCurrentUser(){
-          fetch
+          fetch('/api/users/me')
+            .then(response => {
+              if (!response.ok) throw new Error('Failed to load current user');
+              return response.json();
+            })
+            .then(data => {
+              console.log("Current user:", data);
+              user.value = data.user_id; // Store user ID in the variable
+              
         }
 
 /*
