@@ -84,7 +84,8 @@ router.get('walkrequests/open', async (req, res) => {
       `)
     res.json(rows);
   } catch (err) {
-    
-});
+    console.error('Error fetching open walk requests:', err);
+    res.sendStatus(500)
+}});
 
 module.exports = router;
