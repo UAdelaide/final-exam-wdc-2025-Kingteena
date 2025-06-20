@@ -99,6 +99,8 @@
 
         /*
                 // This is an alternate way to get current user details and store it in user
+                // However, this does not return the user, so it is not used
+                // If this is implemented, it should be called in the onMounted function
                 async function getCurrentUser() {
                   try {
                     // Create AJAX Request
@@ -141,7 +143,6 @@
 
         onMounted(() => {
       loadWalkRequests();
-      getCurrentUser()
     });
 
     return {
