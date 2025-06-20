@@ -110,10 +110,12 @@
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
               const response = JSON.parse(this.responseText);
-              const dogWithPhotos = await (response.map(async dog => ({
-                ...dog,
-                photo_url: await getPhotoUrl()
-              })));
+              response.forEach((dog) => {
+                getPhotoUrl()
+                  .then(photoUrl => {
+                    dog.photo_url = photoUrl; // Add photo_url to each dog object
+                  });
+              })
               dogs.value = dogWithPhotos;
               console.log("Dogs loaded successfully:", dogWithPhotos);
             } else if (this.readyState === 4) {
