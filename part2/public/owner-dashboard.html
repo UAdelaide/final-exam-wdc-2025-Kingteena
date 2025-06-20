@@ -134,12 +134,17 @@
           window.location.href = "/";
         }
 
-        function loadDogs(){
+        function loadDogs() {
           let xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function() {
+          xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
               const response = JSON.parse(this.responseText);
-              
+              this.dogs = response.dogs;
+            } else if (this.readyState === 4) {
+              console.error("Error loading dogs:", this.responseText);
+              alert("Failed to load dogs");
+            }
+          }
         }
 
 
