@@ -13,7 +13,7 @@
 
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
-    <!-- Form for login -->
+    <!-- Form for login, using vue to handle the function -->
     <form @submit.prevent="submitForm">
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
@@ -34,7 +34,9 @@
   <script>
     const { createApp } = Vue;
     createApp({
+      // Create the setup
       setup() {
+        //Login function
         function submitForm(event) {
           event.preventDefault();
           alert('');
