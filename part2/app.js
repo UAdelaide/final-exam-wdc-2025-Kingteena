@@ -16,8 +16,7 @@ app.use(session({
     secret: 'defaultsecret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false}
-
+    cookie: { secure: false }
 }));
 
 // Routes
