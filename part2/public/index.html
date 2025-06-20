@@ -122,7 +122,12 @@
           xmlhttp.send();
         }
         function updatePhotos() {
-          let updatedDogs
+          let updatedDogs = dogs.value
+          for (let i = 0; i < updatedDogs.length; i++) {
+            // Update the photo URL for each dog
+            const xmlhttp = new XMLHttpRequest();
+            
+          }
         }
         onMounted(() => {
           updateDogs(); // Load dogs when the app is mounted
