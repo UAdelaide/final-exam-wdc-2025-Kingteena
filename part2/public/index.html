@@ -101,13 +101,7 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
         }
-
-
-        return {
-          login,
-        };
-
-      onMounted{
+        onMounted(() => {
           // Fetch all registered dogs from the server
           xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
@@ -123,7 +117,11 @@
           xmlhttp.open("GET", "/api/dogs", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send();
-        }
+        })
+        return {
+          dogs,
+          login, // Expose the login function to the template
+        };
       },
     }).mount('#app');
   </script>
