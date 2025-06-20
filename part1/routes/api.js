@@ -60,11 +60,11 @@ router.get('/dogs', async (req, res) => {
   try {
     const [rows] = await db.execute('SELECT * FROM Dogs');
 
-    //format the response
+    // format the response
     const dogs = rows.map((dog) => ({
       dog_name: dog.name,
-      size: dog.size,
-      // ownder_username
+      size: dog.size
+      // owner_username
     }));
 
   } catch (err) {
