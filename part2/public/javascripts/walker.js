@@ -60,14 +60,13 @@ createApp({
         async function getCurrentUser() {
             try {
                 // Create AJAX Request
-                xmlhttp = new XMLHttpRequest();
+                const xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState === 4 && this.status === 200) {
                         const response = JSON.parse(this.responseText);
                         console.log("Current user:", response);
                         // Store user ID in the variable
                         user.value = response.user_id;
-                        return user;
                     } else if (this.readyState === 4) {
                         error.value = 'Failed to load current user';
                     }
