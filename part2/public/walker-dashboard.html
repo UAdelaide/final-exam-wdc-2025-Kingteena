@@ -76,8 +76,8 @@
           }
         }
 
+        // Logout function from page.js, modified to redirect to login page
         function logout() {
-
           // Create AJAX Request
           var xmlhttp = new XMLHttpRequest();
 
@@ -85,7 +85,10 @@
           xmlhttp.open("POST", "/users/logout", true);
           xmlhttp.send();
 
+          // Redirect to login page
+          window.location.href = "/login.html";
         }
+
         onMounted(() => {
           loadWalkRequests();
         });
