@@ -55,7 +55,7 @@ let db;
                 (2, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (6, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
-                (7, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),                   (5, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
+                (7, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (10, (SELECT user_id FROM Users WHERE username="bobwalker"), "accepted"),
                 (8, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending"),
                 (9, (SELECT user_id FROM Users WHERE username="malfoywalker"), "pending");
