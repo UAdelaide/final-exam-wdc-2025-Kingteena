@@ -109,13 +109,13 @@
           xmlhttp.onreadystatechange = async function () {
             if (this.readyState === 4 && this.status === 200) {
               // Parse the JSON response and update the dogs array
-              let response = JSON.parse(this.responseText);
-              response = await (response.map(async dog => ({
+              const response = JSON.parse(this.responseText);
+              const dogWithPhotos = await (response.map(async dog => ({
                 ...dog,
                 photo_url: await getPhotoUrl()
               })));
-              dogs.value = response;
-              console.log("Dogs loaded successfully:", response);
+              dogs.value = dogWithPhotos;
+              console.log("Dogs loaded successfully:", dogWithPhotos);
             } else if (this.readyState === 4) {
               console.error("Error loading dogs:", this.responseText);
               alert("Failed to load dogs");
