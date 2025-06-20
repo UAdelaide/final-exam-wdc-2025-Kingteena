@@ -57,6 +57,7 @@ let db;
                 INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comments)
                 VALUES
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="carol123"), 5, "Great walk!"),
+                (6, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), NULL, NULL),
                 (7, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 3, "Was late and didn't follow instructions."),
                 (10, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 5, "Much better than last time."),
                 (8, (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="randallxkcd"), 3, "Average walk, not very engaging."),
@@ -111,11 +112,7 @@ router.get('/walkers/summary', async (req, res) => {
       SELECT Users.username AS walker_username,
       COUNT(WalkRatings.rating_id) AS total_ratings,
       ROUND(AVG(WalkRatings.rating),1) AS average_rating,
-      COUNT(
-    (SELECT WalkRequests.request_id
-      FROM WalkRequests
-      WHERE WalkRequests.status = 'completed'))
-      ) AS completed_walks
+      COUNT(CASE WHEN WalkRequests.status = 'completed' THEN 1 END) AS completed_walks
       From Users
       LEFT JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
       LEFT JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
