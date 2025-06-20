@@ -135,6 +135,7 @@
         }
 
         function loadDogs() {
+          // Create AJAX Request to fetch dogs
           let xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
@@ -147,6 +148,7 @@
           }
           xmlhttp.open("GET", "/api/users/dogs", true);
           xmlhttp.setRequestHeader("Content-type", "application/json");
+          xmlhttp.send();
         }
 
 
