@@ -53,9 +53,9 @@ let db;
 
 
                 -- Ratings
-                INSERT INTO WalkRatings(request_id, walker_id, rating, comment)
+                INSERT INTO WalkRatings(request_id, walker_id, owner_id, rating, comment)
                 VALUES
-                ((SELECT request_id FROM WalkRequests WHERE dog_id=1))
+                ((SELECT request_id FROM WalkRequests WHERE dog_id=2), ())
                 `);
     }
   } catch (err) {
