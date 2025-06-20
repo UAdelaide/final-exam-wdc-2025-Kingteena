@@ -97,6 +97,7 @@ router.get('/walkers/summary', async (req, res) => {
       COUNT(CASE WHEN WalkRatings.status = 'completed' THEN 1 END) AS completed
       From Users
       INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
+      INNER JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
       INNER JOIN Dogs ON WalkRatings.dog_id = Dogs.dog_id
       `);
     res.json(rows);
