@@ -84,12 +84,14 @@
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
               if (this.readyState === 4 && this.status === 200) {
-                const user = JSON.parse(this.responseText);
-                console.log("Current user:", user);
+                const response = JSON.parse(this.responseText);
+                console.log("Current user:", response);
               } else if (this.readyState === 4) {
                 console.error("Error fetching current user:", this.responseText);
               }
             }
+          } catch (err) {
+            console.error("Error in getCurrentUser:", err);
           }
         }
 
