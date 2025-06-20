@@ -14,7 +14,7 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <!-- Form for login, using vue to handle the function -->
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitLoginForm">
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required>
@@ -37,12 +37,12 @@
       // Create the setup
       setup() {
         //Login function
-        function submitForm(event) {
+        function submitLoginForm(event) {
           event.preventDefault();
           alert('');
         }
         return {
-          submitForm
+          submitLoginForm
         };
       },
       data() {
