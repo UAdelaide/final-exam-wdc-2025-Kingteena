@@ -52,6 +52,9 @@ router.post('/login', async (req, res) => {
     }
 
     return res.json({ message: 'Login successful', user: rows[0] });
+
+    //               // Noting that the existing backend code expects session.user to be set
+
   } catch (error) {
     return res.status(500).json({ error: 'Login failed' });
   }

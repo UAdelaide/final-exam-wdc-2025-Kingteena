@@ -52,12 +52,8 @@
           // Define function to run on response
           xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-
-              // Noting that the existing backend code expects session.user to be set
-
               // Parse the JSON response
               const response = JSON.parse(this.responseText);
-              sessionStorage.setItem('user', response.user);
               console.log("Login successful:", response.user);
 
             } else if (this.readyState === 4 && this.status >= 400) {
