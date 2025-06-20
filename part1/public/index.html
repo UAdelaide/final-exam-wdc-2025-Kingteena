@@ -24,7 +24,13 @@
     const { createApp } = Vue;
 
     XMLHttpRequest = new XMLHttpRequest();
-    XMLHttpRequest.open('GET', 'https://dog.ceo/api/breeds/image/random', )
+    XMLHttpRequest.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
+    XMLHttpRequest.onload = function() {
+        if (XMLHttpRequest.status >= 200 && XMLHttpRequest.status < 400) {
+            const data = JSON.parse(XMLHttpRequest.responseText);
+            
+        }
+    }
 </script>
 
 </body>
