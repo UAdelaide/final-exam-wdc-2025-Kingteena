@@ -43,7 +43,7 @@ createApp({
             xmlhttp.send(JSON.stringify(user));
         }
         function updatePhotos() {
-            let updatedDogs = dogs.value
+            let updatedDogs = dogs.value;
             for (let i = 0; i < updatedDogs.length; i++) {
                 // Update the photo URL for each dog
                 const xmlhttp = new XMLHttpRequest();
@@ -82,10 +82,10 @@ createApp({
 
         onMounted(() => {
             updateDogs(); // Load dogs when the app is mounted
-        })
+        });
         return {
             dogs,
-            login, // Expose the login function to the template
+            login // Expose the login function to the template
         };
-    },
+    }
 }).mount('#app');
