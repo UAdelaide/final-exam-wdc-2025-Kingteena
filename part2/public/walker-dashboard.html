@@ -99,7 +99,10 @@
             error.value = 'Failed to load current user';
           }
 
-          //
+          // Get user details from the server
+          xmlhttp.open("GET", "/api/users/me", true);
+          xmlhttp.setRequestHeader("Content-type", "application/json");
+          xmlhttp.send();
         }
 
         // Logout function from page.js, modified to redirect to login page
