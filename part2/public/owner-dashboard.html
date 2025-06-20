@@ -145,6 +145,8 @@
               alert("Failed to load dogs");
             }
           }
+          xmlhttp.open("GET", "/api/users/dogs", true);
+          xmlhttp.setRequestHeader("Content-type", "application/json");
         }
 
 
