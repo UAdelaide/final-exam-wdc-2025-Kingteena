@@ -56,7 +56,7 @@
   </div>
 
   <script>
-    const { createApp } = Vue;
+    const { createApp, onMounted } = Vue;
     createApp({
       data() {
         return {
@@ -66,8 +66,6 @@
       },
 
       setup() {
-        // dogs array to hold all registered dogs
-        let dogs = ref([]);
 
         // Login function provided in page.js, modified to handle form submission
         function login(event) {
@@ -113,7 +111,6 @@
 
         return {
           login,
-          dogs
         };
       },
       async mounted() {
@@ -122,13 +119,13 @@
         xmlhttp.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
             // Parse the JSON response and update the dogs array
-            dogs.value = JSON.parse(this.responseText);
+            this.dogs = JSON.parse(this.responseText);
             console.log("Dogs loaded successfully:", this.dogs);
           } else if (this.readyState === 4) {
             console.error("Error loading dogs:", this.responseText);
             alert("Failed to load dogs");
           }
-        };
+        }.bind(this);
         xmlhttp.open("GET", "/api/dogs", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
         xmlhttp.send();
