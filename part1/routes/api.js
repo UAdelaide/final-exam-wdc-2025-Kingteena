@@ -57,7 +57,7 @@ let db;
                 VALUES
                 (5, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="carol123"), 5, "Great walk!"),
                 (6, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 4, "Good job, but could be better."),
-                (7, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 1, "Did ."),
+                (7, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 1, "Injured my dog because Weasly."),
                 (10, (SELECT user_id FROM Users WHERE username="bobwalker"), (SELECT user_id FROM Users WHERE username="alice123"), 4, "Good job, but could be better."),
                 ((SELECT request_id FROM WalkRequests WHERE dog_id=3 AND status="completed"), (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="randallxkcd"), 3, "Average walk, not very engaging."),
                 ((SELECT request_id FROM WalkRequests WHERE dog_id=4 AND status="completed"), (SELECT user_id FROM Users WHERE username="malfoywalker"), (SELECT user_id FROM Users WHERE username="carol123"), 2, "Not great, the walker was late.");
