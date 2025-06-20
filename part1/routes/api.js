@@ -66,11 +66,17 @@ router.get('/dogs', async (req, res) => {
       size: dog.size,
       owner_username: dog.username
     }));
+
     res.json(dogs);
+
   } catch (err) {
     console.error('Error fetching dogs:', err);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+router.get('walkrequests/open', async (req, res) => {
+  
 });
 
 module.exports = router;
