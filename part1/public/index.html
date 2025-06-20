@@ -29,6 +29,7 @@
             .then(response => response.json())
             .then(data => {
                 dogImage = data.message;
+                console.log("Dog image URL:", dogImage);
             })
             .catch(error => {
                 console.error("Error fetching dog image:", error);
