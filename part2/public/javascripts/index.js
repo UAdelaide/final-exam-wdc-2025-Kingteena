@@ -42,24 +42,6 @@ createApp({
             xmlhttp.setRequestHeader("Content-type", "application/json");
             xmlhttp.send(JSON.stringify(user));
         }
-
-        function updateDogs() {
-            // Fetch all registered dogs from the server
-            const xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    // Parse the JSON response and update the dogs array
-                    dogs.value = JSON.parse(this.responseText);
-                    updatePhotos(); // Call the function to update dogs
-                } else if (this.readyState === 4) {
-                    console.error("Error loading dogs:", this.responseText);
-                    alert("Failed to load dogs");
-                }
-            }
-            xmlhttp.open("GET", "/api/dogs", true);
-            xmlhttp.setRequestHeader("Content-type", "application/json");
-            xmlhttp.send();
-        }
         function updatePhotos() {
             let updatedDogs = dogs.value
             for (let i = 0; i < updatedDogs.length; i++) {
@@ -73,12 +55,31 @@ createApp({
                     } else if (this.readyState === 4) {
                         console.error("Error updating photo URL for dog:", updatedDogs[i].dog_id, this.responseText);
                     }
-                }
+                };
                 xmlhttp.open("GET", 'https://dog.ceo/api/breeds/image/random', true);
                 xmlhttp.send();
             }
             dogs.value = updatedDogs; // Update the reactive array with new photo URLs
         }
+
+        function updateDogs() {
+            // Fetch all registered dogs from the server
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    // Parse the JSON response and update the dogs array
+                    dogs.value = JSON.parse(this.responseText);
+                    updatePhotos(); // Call the function to update dogs
+                } else if (this.readyState === 4) {
+                    console.error("Error loading dogs:", this.responseText);
+                    alert("Failed to load dogs");
+                }
+            };
+            xmlhttp.open("GET", "/api/dogs", true);
+            xmlhttp.setRequestHeader("Content-type", "application/json");
+            xmlhttp.send();
+        }
+
         onMounted(() => {
             updateDogs(); // Load dogs when the app is mounted
         })
