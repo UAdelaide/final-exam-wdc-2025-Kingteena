@@ -58,9 +58,8 @@
   <script>
     const { createApp, onMounted, ref } = Vue;
     createApp({
-      // Hold dogs data
-
       setup() {
+        const dogs = ref([]); // Reactive array to hold dog data
 
         // Login function provided in page.js, modified to handle form submission
         function login(event) {
@@ -114,7 +113,7 @@
         xmlhttp.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
             // Parse the JSON response and update the dogs array
-            this.dogs = JSON.parse(this.responseText);
+            dogs.value = JSON.parse(this.responseText);
             console.log("Dogs loaded successfully:", this.dogs);
           } else if (this.readyState === 4) {
             console.error("Error loading dogs:", this.responseText);
