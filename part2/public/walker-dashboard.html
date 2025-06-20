@@ -61,11 +61,10 @@
 
         async function applyToWalk(requestId) {
           try {
-            const user_id = getCurrentUser().user_id;
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user_id })
+              body: JSON.stringify({ walker_id: user })
             });
             const result = await res.json();
 
@@ -79,6 +78,7 @@
           }
         }
 
+        /*
         //This is one way to "get" the current user
         function getCurrentUser() {
           fetch('/api/users/me')
@@ -97,7 +97,7 @@
             });
         }
 
-      /*
+      */
         // This is an alternate way to get current user details and store it in user
         async function getCurrentUser() {
           try {
@@ -120,13 +120,11 @@
             error.value = 'Failed to load current user';
           }
 
-        // Get user details from the server
-        xmlhttp.open("GET", "/api/users/me", true);
-        xmlhttp.setRequestHeader("Content-type", "application/json");
-        xmlhttp.send();
-      }
-
-      */
+          // Get user details from the server
+          xmlhttp.open("GET", "/api/users/me", true);
+          xmlhttp.setRequestHeader("Content-type", "application/json");
+          xmlhttp.send();
+        }
 
         // Logout function from page.js, modified to redirect to login page
         function logout() {
