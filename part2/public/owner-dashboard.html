@@ -85,6 +85,8 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+
+        // Add walks for computed property
         const dogs = ref([]);
 
         async function loadWalks() {
@@ -145,8 +147,8 @@
             // If error, log the error and alert the user
             if (this.readyState === 4 && this.status === 200) {
               const response = JSON.parse(this.responseText);
-              this.dogs = response;
-              console.log("Dogdsdss loaded successfully:", this.dogs);
+              dogs = response;
+              console.log("Dogdsdss loaded successfully:", dogs);
 
               for (dog in this.dogs) {
 
