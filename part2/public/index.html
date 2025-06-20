@@ -14,7 +14,7 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <!-- Form for login, using vue to handle the function -->
-    <form @submit.prevent="submitLoginForm">
+    <form @submit.prevent="login">
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required>
@@ -38,8 +38,9 @@
     createApp({
       // Create the setup
       setup() {
-        // Login function provided in page.js
-        function login() {
+        // Login function provided in page.js, modified to handle form submission
+        function login(event) {
+            event.preventDefault();
 
           let user = {
             user: document.getElementById('username').value,
@@ -63,12 +64,6 @@
           xmlhttp.setRequestHeader("Content-type", "application/json");
           xmlhttp.send(JSON.stringify(user));
 
-        }
-        //Login form submission handler
-        function submitLoginForm(event) {
-          event.preventDefault();
-          login();
-          alert('');
         }
 
         return {
