@@ -57,7 +57,12 @@
   <script>
     const { createApp } = Vue;
     createApp({
-      
+      data() {
+        return {
+          message: 'Welcome to the Dog Walking Service!',
+          dogs: [] // Array to hold dog data
+        };
+      },
 
       setup() {
 
@@ -104,12 +109,6 @@
 
         return {
           login,
-          dog
-        };
-      },
-      data() {
-        return {
-          message: 'Welcome to the Dog Walking Service!'
         };
       }
     }).mount('#app');
