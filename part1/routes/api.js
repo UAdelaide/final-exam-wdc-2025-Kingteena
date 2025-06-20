@@ -59,20 +59,13 @@ router.get('/', function (req, res, next) {
 router.get('/dogs', async (req, res) => {
   try {
     const [rows] = await db.execute(`
-      SELECT Dogs.name AS dog_name, Dogs.size, Users.username
+      SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
       FROM Dogs
       INNER JOIN Users
       ON Dogs.owner_id=Users.user_id;`
     );
 
-    // format the response
-    const dogs = rows.map((dog) => ({
-      dog_name: dog.name,
-      size: dog.size,
-      owner_username: dog.username
-    }));
-
-    res.json(dogs);
+    res.json(rows);
 
   } catch (err) {
     console.error('Error fetching dogs:', err);
@@ -89,8 +82,9 @@ router.get('walkrequests/open', async (req, res) => {
       INNER JOIN Users ON Dogs.owner_id = Users.user_id
       WHERE WalkRequests.status = 'open';
       `)
-
-  }
+    res.json(rows);
+  } catch (err) {
+    
 });
 
 module.exports = router;
