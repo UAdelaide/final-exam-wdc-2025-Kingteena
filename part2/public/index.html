@@ -55,6 +55,9 @@
               // Parse the JSON response
               const response = JSON.parse(this.responseText);
               console.log("Login successful:", response.user);
+              if (response.user.role === 'owner') {
+                // Redirect to owner dashboard
+                
 
             } else if (this.readyState === 4 && this.status >= 400) {
               console.error("Error response:", this.responseText);
