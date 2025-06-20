@@ -30,10 +30,8 @@ app.use('/api/users', userRoutes);
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
-      SELECT Dogs.dog_id, Dogs.name, Dogs.size, Users.id AS owner_id
-      FROM Dogs
-      INNER JOIN Users
-      ON Dogs.owner_id=Users.user_id;`);
+      SELECT dog_id, Dogs.name, Dogs.size, Users.user_id AS owner_id
+      FROM Dogs`);
 
         res.json(rows);
 
